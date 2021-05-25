@@ -33,7 +33,7 @@ const useApiCotizar = (lista) => {
 
     function generaNvoArray (objeto) {
         for (var i in objeto) {
-            //objeto.hasOwnProperty --> filtrar las propiedades del objeto
+            //objeto.hasOwnProperty -->filtrar las propiedades del objeto
             if(objeto.hasOwnProperty(i)) {
                 var aux = `${i}`;
                 var banderaOK;

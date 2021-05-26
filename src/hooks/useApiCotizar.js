@@ -19,6 +19,26 @@ const Boton = styled.input `
     }
 `;
 
+
+const BotonVerMas = styled.input `
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ee7048;
+    color: #ee7048;
+    width: 100%;
+    border-radius: 40px;
+    transition: all .5s ease;
+
+    &:hover {
+        color: #ea532a;
+        border: 2px solid #ea532a;
+        cursor: pointer;
+    }
+`;
+
 const useApiCotizar = (lista, flag, buscarCoti) => {
 
 
@@ -155,6 +175,7 @@ generaNvoFlag(banderaAux)
 
 
             <div>
+                
                 {/* {paginaActual === 1 ? null : (
 
                     <button
@@ -165,10 +186,11 @@ generaNvoFlag(banderaAux)
 
                 {paginaActual === maxPag ? null : (
 
-                <button
+                <BotonVerMas
                     type="button"
                     onClick={paginaSiguiente}
-                    >&raquo;</button>
+                    value="Ver más cotizaciones"
+                    />
                 )}
             </div>
         </Fragment>

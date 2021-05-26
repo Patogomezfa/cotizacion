@@ -54,7 +54,7 @@ const BotonVerMas = styled.input `
 `;
 
 
-const Formulario = ( { setFecha, setDivisa }) => {
+const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
     //State de la lista de las APIs
@@ -113,6 +113,7 @@ const Formulario = ( { setFecha, setDivisa }) => {
                     const resultado = await axios.get(url);
                     setLista(resultado.data.rates);
                     setBuscarCoti(false);
+                    console.log(resultado);
                 }
             }
                     consultarApi();
@@ -156,6 +157,7 @@ const Formulario = ( { setFecha, setDivisa }) => {
         setBusqueMas(true);
     }
 
+    
 
 
 
@@ -176,11 +178,14 @@ const Formulario = ( { setFecha, setDivisa }) => {
             {busqueMas ? <SelectCotizacion /> : null}
 
             <form>
+              { busqueMas ? null:
                 <BotonVerMas
                 onClick= {masCotizaciones}
                 type="submit" 
                 value="Ver más cotizaciones"
                 />
+                }
+           
             </form>
 
 
@@ -190,79 +195,3 @@ const Formulario = ( { setFecha, setDivisa }) => {
     }
 
 export default Formulario;
-
-
-//-------------------------CODE PATO-------------------------------
-
-/* 
-
-    const [error, guardarError] = useState(false);
-
-
-    const DIVISAS = [
-        {codigo: 'USD', nombre: 'Dolar de Estados Unidos'},
-        {codigo: 'MXN', nombre: 'Peso Mexicano'},
-        {codigo: 'EUR', nombre: 'Euro'},
-        {codigo: 'GBP', nombre: 'Libra Esterlina'},
-    ]
-
-
-
-    //Utilizar useDivisa
-    const [divisa, SelectDivisa] = useDivisa('Selecciona la moneda de referencia', '', DIVISAS);
-    const [fecha, SelectFecha] = useFecha('Ingresa la fecha de cotizacion', '');
-    //Ejecutar llamado a la API
-    useEffect (() => {
-        const consultarApi = async () => {
-            const url = 'http://api.exchangeratesapi.io/v1/latest?access_key=6feb2ec446b7478a6d4ee3885d838e9e';
-
-            const resultado = await axios.get(url);
-
-            console.log(resultado);
-        }
-        consultarApi();
-
-    }, []);
-
-    //Cuando el usuario hace submit
-    const cotizarDivisa = e => {
-        e.preventDefault();
-
-        //Validar si ambos cambos estan llenos
-        if(divisa === ''){ //------------VALIDAR FECHA
-            guardarError(true);
-            return; //para que no se ejecute el codigo
-        }
-
-        //pasar los datos al componente principal
-        guardarError(false);
-        guardarDivisa(divisa);
-        guardarFecha(fecha);
-    }
-
-    return ( 
-        <form
-            onSubmit={cotizarDivisa}
-        >
-
-            {error ? <Error mensaje="Debes completar todos los campos" />: null}
-
-            <SelectDivisa />
-            <SelectFecha />
-
-
-            <Boton 
-            type="submit"
-            value="Calcular"
-            />
-
-        </form>
-     );
-}
- 
-    Formulario.propTypes = {
-
-    guardarDivisa: PropTypes.func.isRequired,
-    guardarCriptoDivisa: PropTypes.func.isRequired
-
-} */

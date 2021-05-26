@@ -7,7 +7,6 @@ const Contenedor = styled.div `
 
   max-width: 480px;
   margin: 3.5rem auto;
-  padding: 5rem 9rem;
   border-radius: 10px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
   `;

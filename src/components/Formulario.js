@@ -172,7 +172,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
     return (
         <Fragment>
-            <form>
+            <form className="form">
                 {error ? <Error mensaje="Debes completar todos los campos" /> : null}
                 <SelectDivisa />
                 <SelectFecha />
@@ -186,7 +186,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             
             {busqueMas ? <SelectCotizacion /> : null}
 
-            <form>
+            <form className="form">
               { busqueMas ? null:
                 <BotonVerMas
                 onClick= {masCotizaciones}

@@ -56,12 +56,13 @@ const BotonVerMas = styled.input `
 const Formulario = ( { setFecha, setDivisa }) => {
 
 
-    //State de la lista de la API
+    //State de la lista de las APIs
+    const [flag, setFlag] = useState([]);
     const [lista, setLista] = useState({});
     const [busqueMas, setBusqueMas] = useState(false);
     const [buscarCoti, setBuscarCoti] = useState(false);
 
-    //--------------------------------------------------------------COMENTS----------------------
+
     //utilizar useDivisa
     //el state que va a retornar es segun la divisa que el usuario elija, lo estoy extrayendo en el orden en que se retornan
     //seleccionan una moneda.. se pasa como label en el hooks y el string vacio es lo que va a seleccionar y lo paso como state inicial
@@ -73,24 +74,39 @@ const Formulario = ( { setFecha, setDivisa }) => {
     //utilizar useFecha
     const [fecha, SelectFecha] = useFecha('Ingresa la fecha de cotizacion');
 
+    //Utilizar useApiCotizar
+    const [bandera, SelectCotizacion] = useApiCotizar(lista, flag);
+    
     //utilizar useApi
     const [api, SelectApi] = useApi(lista);
-    const [api1, SelectCotizacion] = useApiCotizar(lista);
     //const [vermas, guardarVerMas] = useState(''); ----------------NO SIRVE PA NADA
 
     //State Error
     const [error, setError] = useState(false);
-    
 
- useEffect (() => {
 
-     
- }, []);
+//API BANDERAS
+    useEffect (() => {
 
-    //Ejecutar llamado automatico a la API
+    const ApiFlag = async  () => {
+        if(buscarCoti === true){
+            
+            const url = `https://restcountries.eu/rest/v2/all`;
+            const resultadoFlag = await axios.get(url);
+            setFlag(resultadoFlag.data);
+            // console.log(resultadoFlag.data);
+        }
+    }
+            ApiFlag();
+            
+        }, [buscarCoti]);
+
+
+// API Cotizacion
+    //Ejecutar llamado automatico 
     useEffect(() => {
         const consultarApi = async  () => {
-                if(divisa === '' && fecha === null && buscarCoti === false){
+                if(buscarCoti === false){
                     //console.log('primer llamado API');
                     const url = `http://api.exchangeratesapi.io/v1/latest?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=USD`;
                     const resultado = await axios.get(url);
@@ -99,19 +115,23 @@ const Formulario = ( { setFecha, setDivisa }) => {
                 }
             }
                     consultarApi();
-}, [divisa, fecha, buscarCoti]);
+    }, [divisa, fecha, buscarCoti]);
 
-            
+//Segundo llamado
     const consultarApi2 = async () => {
         //console.log('segundo llamado API');
          //${fecha.toISOString().slice(0,10)}
         const url = `http://api.exchangeratesapi.io/v1/${fecha.toISOString().slice(0,10)}?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=${divisa}`
         const resultado = await axios.get(url);
         setLista(resultado.data.rates);
-            }
+        // resultadoFlag.data
+        
+        
+    }
+    
+            
 
-
-    //cuando el usuario hace submit
+//cuando el usuario hace submit
     const buscarCotizar = (e) => {
         e.preventDefault();
         setBuscarCoti(true);

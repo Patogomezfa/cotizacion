@@ -38,7 +38,6 @@ function App() {
     <Contenedor>
         <Header>Histórico de cotizaciones</Header>
       <Contenedor2>
-      
         <Formulario 
           setDivisa={setDivisa}
           setFecha={setFecha}

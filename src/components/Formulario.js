@@ -108,7 +108,7 @@ const Formulario = ( { setFecha, setDivisa }) => {
         const consultarApi = async  () => {
                 if(buscarCoti === false){
                     //console.log('primer llamado API');
-                    const url = `http://api.exchangeratesapi.io/v1/latest?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=USD`;
+                    const url = `https://api.exchangeratesapi.io/v1/latest?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=USD`;
                     const resultado = await axios.get(url);
                     setLista(resultado.data.rates);
                     setBuscarCoti(false);
@@ -121,7 +121,7 @@ const Formulario = ( { setFecha, setDivisa }) => {
     const consultarApi2 = async () => {
         //console.log('segundo llamado API');
          //${fecha.toISOString().slice(0,10)}
-        const url = `http://api.exchangeratesapi.io/v1/${fecha.toISOString().slice(0,10)}?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=${divisa}`
+        const url = `https://api.exchangeratesapi.io/v1/${fecha.toISOString().slice(0,10)}?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=${divisa}`
         const resultado = await axios.get(url);
         setLista(resultado.data.rates);
         // resultadoFlag.data

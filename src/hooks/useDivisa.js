@@ -2,7 +2,6 @@ import React, {Fragment, useState} from 'react';
 import styled from '@emotion/styled';
 
 //-- Inicio styled
-
 const Label = styled.label `
     margin-top: 3.5rem;
     margin-bottom: .5rem;
@@ -22,7 +21,6 @@ const Select = styled.select `
     --webkit-appearance: none;
     color: #8a8a8a;
 `;
-
 //---Fin styled
 
 const useDivisa = (label, stateInicial, divisas) => {
@@ -54,9 +52,7 @@ const useDivisa = (label, stateInicial, divisas) => {
 
     );
 
-    //Retornar state, interfaz y fn que modifica el state
     return [state, SeleccionarDivisa, actualizarState];
 }
-
 
 export default useDivisa;

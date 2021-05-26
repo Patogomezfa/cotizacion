@@ -1,34 +1,15 @@
 import React, {Fragment, useState} from 'react';
 
 //Banderas
-import CAD from '../img/canada.png';
-import GBP from '../img/united-kingdom.png'
-import USD from '../img/usd.png'
-import EUR from '../img/eur.png'
+import CAD from '../img/CAD.png';
+import GBP from '../img/GBP.png'
+import USD from '../img/USD.png'
+import EUR from '../img/EUR.png'
 
 
+const useListaDefecto = (lista) => {
 
-const useApi = (lista) => {
-
-
-    //State
     const [state, setState] = useState();
-
-  /*   const [flag, setFlag] = useState([]);
-
-
-    useEffect (() => {
-        
-        const apiflag = async () => {
-            const url1 = await fetch(`http://countryapi.gear.host/v1/Country/getCountries`);
-   
-            const resultado1 = await url1.json()
-            
-           console.log(resultado1);
-        }
-            apiflag();
-    }, []);
- */
 
     const SelectApi = () => (
         <Fragment>
@@ -72,4 +53,4 @@ const useApi = (lista) => {
         return [state, SelectApi, setState];
 }
 
-export default useApi;
+export default useListaDefecto;

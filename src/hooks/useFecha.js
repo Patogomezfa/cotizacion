@@ -17,18 +17,10 @@ const Label = styled.label `
     font-size: 18px;
 `;
 
-/* const Div = styled.div `
-display: block;
-    `;  */
-
-//----Fin Styled
-
 const useFecha = (label) => {
 
         //State de DatePicker
         const [stateFecha, setFecha] = useState(null);
-
-/* console.log(fecha.toISOString().slice(0,10)); */ //convertir fecha para url api
 
         const SeleccionFecha = () => (
         <Fragment>
@@ -36,7 +28,7 @@ const useFecha = (label) => {
                 <DatePicker 
                 className="datepicker"
                 selected={stateFecha}
-                onChange={(date) => setFecha(date)}
+                onChange={(date) => setFecha(date)} //guardar en setFecha
                 placeholderText="DD / MM / YYYY"
                 maxDate={addDays(new Date(),0)} //Evitar seleccion de dias posteriores
                 dateFormatCalendar="yyyy-MM-dd"
@@ -44,9 +36,7 @@ const useFecha = (label) => {
         </Fragment>
         
      );
-     //Retornar state, interfaz y fn que modifica el state
     return [stateFecha, SeleccionFecha, setFecha];
 }
-
 
 export default useFecha;

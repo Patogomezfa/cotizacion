@@ -2,8 +2,8 @@ import React, {Fragment, useEffect, useState} from 'react';
 import styled from '@emotion/styled';
 
 //Hooks
-import useApi from '../hooks/useApi';
-import useApiCotizar from '../hooks/useApiCotizar';
+import useListaDefecto from '../hooks/useListaDefecto';
+import useListaBusqueda from '../hooks/useListaBusqueda';
 import useDivisa from '../hooks/useDivisa';
 import useFecha from '../hooks/useFecha';
 
@@ -13,8 +13,9 @@ import Error from './Error';
 //Axios para API
 import axios from 'axios';
 
-
+//---Inicio Styled
 const BotonBuscar = styled.input `
+    min-width: 240px;
     margin-top: 40px;
     margin-bottom: 40px;
     font-size: 18px;
@@ -50,10 +51,9 @@ const BotonVerMas = styled.input `
         cursor: pointer;
     }
 `;
-
+//--Fin styled
 
 const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
-
 
     //State de las APIs
     //const [flag, setFlag] = useState([]);
@@ -63,26 +63,23 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
     //utilizar useDivisa
-    //el state que va a retornar es segun la divisa que el usuario elija, lo estoy extrayendo en el orden en que se retornan
-    //seleccionan una moneda.. se pasa como label en el hooks y el string vacio es lo que va a seleccionar y lo paso como state inicial
-
+    //el state que va a retornar es segun la divisa que el usuario elija, se extrae en el orden en que se retorna
+    //--seleccionan una moneda.. se pasa como label en el hooks y el string vacio es lo que va a seleccionar y lo paso como state inicial--
     const[divisa, SelectDivisa] = useDivisa('Selecciona la moneda de referencia', '', lista); 
-    //el state de useDivisa que va a retornar es segun la moneda que el usuario elija. Lo ewstoy extrayendo en el orden en que se retornan
-
 
     //utilizar useFecha
     const [fecha, SelectFecha] = useFecha('Ingresa la fecha de cotizacion');
 
-    //Utilizar useApiCotizar
-    const [bandera, SelectCotizacion] = useApiCotizar(lista);
+    //Utilizar useListaBusqueda
+    const [bandera, SelectCotizacion] = useListaBusqueda(lista);
     
-    //utilizar useApi
-    const [api, SelectApi] = useApi(lista);
-    //const [vermas, guardarVerMas] = useState(''); ----------------NO SIRVE PA NADA
+    //utilizar useListaDefecto
+    const [api, SelectApi] = useListaDefecto(lista);
 
     //State Error
     const [error, setError] = useState(false);
 
+// ---- APIS
 
 //API BANDERAS
   /*  useEffect (() => {
@@ -102,13 +99,11 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     console.log(flag);
    }, []); */
 
-
 // API Cotizacion
-    //Ejecutar llamado automatico 
+    //Llamado automatico 
     useEffect(() => {
         const consultarApi = async  () => {
                 if(buscarCoti === false){
-                    //console.log('primer llamado API');
                     const url = `https://api.exchangeratesapi.io/v1/latest?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=USD`;
                     const resultado = await axios.get(url);
                     setLista(resultado.data.rates);
@@ -119,43 +114,38 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
                     consultarApi();
     }, [divisa, fecha, buscarCoti]);
 
-//Segundo llamado
+    //Segundo llamado
     const consultarApi2 = async () => {
-        //console.log('segundo llamado API');
-         //${fecha.toISOString().slice(0,10)}
         const url = `https://api.exchangeratesapi.io/v1/${fecha.toISOString().slice(0,10)}?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=${divisa}`
         const resultado = await axios.get(url);
         setLista(resultado.data.rates);
-        // resultadoFlag.data
-        
-        
     }
     
-    // Unir Api de banderas y api de cotizacion para mostrar banderas en lista
-    /*
+    // >> Unir Api de banderas y api de cotizacion para mostrar banderas en lista <<
+/*
         const nuevoFlag = [{}];
         const nuevoLista = [];
 
         nuevoFlag.push(flag.data);
         nuevoLista.push(lista);
-useEffect (() => {
+    useEffect (() => {
 
-    const divisa1 = divisa;
-    
-    const bandera = flag.find( bandera =>{
-        return bandera.currencies[0].code === `${divisa1}`;
-    });
-    const dosApis = [...nuevoFlag, ...nuevoLista];
-    console.log(bandera);
-    // banderaAux = toString(bandera.flag);
-    //  const AuxBandera = toString(bandera.flag);
+        const divisa1 = divisa;
+        
+        const bandera = flag.find( bandera =>{
+            return bandera.currencies[0].code === `${divisa1}`;
+        });
+        const dosApis = [...nuevoFlag, ...nuevoLista];
+        console.log(bandera);
+        // banderaAux = toString(bandera.flag);
+        //  const AuxBandera = toString(bandera.flag);
 
 
-    console.log(dosApis);
-    
+        console.log(dosApis);
+        
 
-}, [buscarCoti]);
-             */
+    }, [buscarCoti]);
+*/
 
 //cuando el usuario hace submit
     const buscarCotizar = (e) => {
@@ -173,17 +163,12 @@ useEffect (() => {
 
         consultarApi2(); // Ejecuta llamado a la api para Ver Mas
 
-    }
-    }
+    }}
     
     const masCotizaciones = (e) => {
         e.preventDefault();
         setBusqueMas(true);
     }
-
-    
-
-
 
     return (
         <Fragment>
@@ -209,15 +194,8 @@ useEffect (() => {
                 value="Ver más cotizaciones"
                 />
                 }
-           
             </form>
-
-
         </Fragment>
-
     );
     }
-
-
-
 export default Formulario;

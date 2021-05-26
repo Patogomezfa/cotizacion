@@ -28,7 +28,7 @@ const BotonBuscar = styled.input `
     transition: background-color .3s ease;
 
     &:hover {
-        background-color: #ea532a;
+        background-color: #e2451b;
         cursor: pointer;
     }
 `;
@@ -46,8 +46,8 @@ const BotonVerMas = styled.input `
     transition: all .5s ease;
     
     &:hover {
-        background-color: #ea532a;
-        border: 2px solid #ea532a;
+        background-color: #e2451b;
+        border: 2px solid #e2451b;
         color: #fff;
         cursor: pointer;
     }

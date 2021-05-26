@@ -20,7 +20,9 @@ const Select = styled.select `
     font-size:1.2rem;
     --webkit-appearance: none;
     color: #8a8a8a;
+
 `;
+
 //---Fin styled
 
 const useDivisa = (label, stateInicial, divisas) => {
@@ -38,7 +40,7 @@ const useDivisa = (label, stateInicial, divisas) => {
             onChange={ e => actualizarState(e.target.value)}
             value={state}
             >
-                <option >Moneda</option>
+                <option>Moneda</option>
                 {Object.keys(divisas).map(opcion => (
                     <option 
                     key={opcion.toString()}

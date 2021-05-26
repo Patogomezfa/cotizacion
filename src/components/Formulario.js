@@ -10,11 +10,8 @@ import useFecha from '../hooks/useFecha';
 //Componentes
 import Error from './Error';
 
-
-
 //Axios para API
 import axios from 'axios';
-
 
 
 const BotonBuscar = styled.input `
@@ -58,9 +55,8 @@ const BotonVerMas = styled.input `
 const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
-    //State de la lista de las APIs
- 
-    const [flag, setFlag] = useState([]);
+    //State de las APIs
+    //const [flag, setFlag] = useState([]);
     const [lista, setLista] = useState({});
     const [busqueMas, setBusqueMas] = useState(false);
     const [buscarCoti, setBuscarCoti] = useState(false);
@@ -89,7 +85,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
 //API BANDERAS
-   useEffect (() => {
+  /*  useEffect (() => {
 
 
 
@@ -104,7 +100,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     }
     ApiFlag();
     console.log(flag);
-   }, []);
+   }, []); */
 
 
 // API Cotizacion
@@ -135,7 +131,31 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
         
     }
     
-            
+    // Unir Api de banderas y api de cotizacion para mostrar banderas en lista
+    /*
+        const nuevoFlag = [{}];
+        const nuevoLista = [];
+
+        nuevoFlag.push(flag.data);
+        nuevoLista.push(lista);
+useEffect (() => {
+
+    const divisa1 = divisa;
+    
+    const bandera = flag.find( bandera =>{
+        return bandera.currencies[0].code === `${divisa1}`;
+    });
+    const dosApis = [...nuevoFlag, ...nuevoLista];
+    console.log(bandera);
+    // banderaAux = toString(bandera.flag);
+    //  const AuxBandera = toString(bandera.flag);
+
+
+    console.log(dosApis);
+    
+
+}, [buscarCoti]);
+             */
 
 //cuando el usuario hace submit
     const buscarCotizar = (e) => {
@@ -151,7 +171,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
         setDivisa(divisa);
         setFecha(fecha);
 
-        consultarApi2();
+        consultarApi2(); // Ejecuta llamado a la api para Ver Mas
 
     }
     }
@@ -197,5 +217,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
     );
     }
+
+
 
 export default Formulario;

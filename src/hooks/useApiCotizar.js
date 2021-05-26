@@ -1,7 +1,6 @@
 import React, {useState, Fragment} from 'react';
 import styled from '@emotion/styled';
 
-import ApiFlags from '../components/ApiFlags';
 
 
 const BotonVerMas = styled.input `
@@ -135,22 +134,20 @@ generaNvoFlag(banderaAux)
         setPaginaActual(nuevaPaginaActual);
     }
 
-    const SelectCotizacion = () => (
+    const SelectCotizacion = (divisa) => (
         //Lo que esta en SelectCotizacion es lo que se muestra en pantalla
 
         <Fragment>
 
-            <ApiFlags />
 
-            <ul className="ul-none">
+            <ul className="ul-none" >
                 {arrayItem
                     .slice('', paginaActual * 4) // presenta cotizaciones 4 + 4
                     .map((item) => (
                         <li>
                     <hr className="linea"></hr>
                     <ul className="lista ul-none">
-                        {/* <li>&#x1f3f4;&#xe0067;&#xe0062;&#xe0073;&#xe0063;&#xe0074;&#xe007f;</li> */}
-                        <li><img src="" /></li>
+                        <li>&#x1f3f4;&#xe0067;&#xe0062;&#xe0073;&#xe0063;&#xe0074;&#xe007f;</li>
                         <li>{item.divisa}</li>
                         <li>{item.coti}</li>
                     </ul>

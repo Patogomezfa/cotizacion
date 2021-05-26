@@ -1,16 +1,26 @@
-/* import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Formulario from './Formulario';
 import axios from 'axios';
 
-const ApiFlags = ({divisa, fecha, buscarCoti}) => {
+const ApiFlags = (buscarCoti) => {
 
+    const [flag, setFlag] = useState([]);
 
+        const ApiFlag = async  () => {
+            if(buscarCoti === true){
+                
+                const url = `https://restcountries.eu/rest/v2/all`;
+                const resultadoFlag = await axios.get(url);
+                setFlag(resultadoFlag.data);
+                
+            }
+        }
+        ApiFlag();
+        
+                
 
- 
-
-            console.log(flag.data[0]);
-    return ( 
-        <div>
+                return ( 
+                    <div>
             <p>{flag.data}</p>
         </div>
      );
@@ -18,4 +28,3 @@ const ApiFlags = ({divisa, fecha, buscarCoti}) => {
  
 export default ApiFlags;
 
- */

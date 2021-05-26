@@ -11,6 +11,7 @@ import useFecha from '../hooks/useFecha';
 import Error from './Error';
 
 
+
 //Axios para API
 import axios from 'axios';
 
@@ -58,6 +59,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
     //State de la lista de las APIs
+ 
     const [flag, setFlag] = useState([]);
     const [lista, setLista] = useState({});
     const [busqueMas, setBusqueMas] = useState(false);
@@ -87,7 +89,9 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
 //API BANDERAS
-    useEffect (() => {
+   useEffect (() => {
+
+
 
     const ApiFlag = async  () => {
         if(buscarCoti === true){
@@ -95,13 +99,12 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             const url = `https://restcountries.eu/rest/v2/all`;
             const resultadoFlag = await axios.get(url);
             setFlag(resultadoFlag.data);
-            // console.log(resultadoFlag.data);
             
         }
     }
-            ApiFlag();
-            
-        }, [buscarCoti]);
+    ApiFlag();
+    console.log(flag);
+   }, []);
 
 
 // API Cotizacion

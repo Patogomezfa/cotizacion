@@ -1,6 +1,7 @@
 import React, {useState, Fragment} from 'react';
 import styled from '@emotion/styled';
 
+import ApiFlags from '../components/ApiFlags';
 
 
 const BotonVerMas = styled.input `
@@ -139,6 +140,7 @@ generaNvoFlag(banderaAux)
 
         <Fragment>
 
+            <ApiFlags />
 
             <ul className="ul-none">
                 {arrayItem

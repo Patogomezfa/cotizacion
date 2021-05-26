@@ -44,10 +44,11 @@ const BotonVerMas = styled.input `
     width: 100%;
     border-radius: 40px;
     transition: all .5s ease;
-
+    
     &:hover {
-        color: #ea532a;
+        background-color: #ea532a;
         border: 2px solid #ea532a;
+        color: #fff;
         cursor: pointer;
     }
 `;

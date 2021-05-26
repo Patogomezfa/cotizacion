@@ -39,15 +39,16 @@ const BotonVerMas = styled.input `
     margin-bottom: 40px;
     font-size: 18px;
     padding: 20px;
-    background-color: #ee7048;
-    border: none;
+    background-color: #fff;
+    border: 2px solid #ee7048;
+    color: #ee7048;
     width: 100%;
     border-radius: 40px;
-    color: #FFF;
-    transition: background-color .3s ease;
+    transition: all .5s ease;
 
     &:hover {
-        background-color: #ea532a;
+        color: #ea532a;
+        border: 2px solid #ea532a;
         cursor: pointer;
     }
 `;
@@ -178,7 +179,7 @@ const Formulario = ( { setFecha, setDivisa }) => {
                 <BotonVerMas
                 onClick= {masCotizaciones}
                 type="submit" 
-                value="Ver mas cotizaciones"
+                value="Ver más cotizaciones"
                 />
             </form>
 

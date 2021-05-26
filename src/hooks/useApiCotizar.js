@@ -115,14 +115,14 @@ generaNvoFlag(banderaAux)
 
 
     //Calculo cantidad maxima de paginas
-    var maxPag = Math.ceil(arrayItem.length / 4);
+    var maxPag = arrayItem.length / 4;
 
     //Definir la pagina anterior
-    const paginaAnterior = () => {
+/*     const paginaAnterior = () => {
         const nuevaPaginaActual = paginaActual - 1;
         if (nuevaPaginaActual === 0) return;
         setPaginaActual(nuevaPaginaActual);
-    };
+    }; */
 
     //Definir la pagina siguiente
     const paginaSiguiente = () => {
@@ -137,9 +137,9 @@ generaNvoFlag(banderaAux)
         <Fragment>
 
 
-<ul className="ul-none">
+            <ul className="ul-none">
                 {arrayItem
-                    .slice(paginaActual * 4 - 4, paginaActual * 4)
+                    .slice('', paginaActual * 4) // presenta cotizaciones 4 + 4
                     .map((item) => (
                         <li>
                     <hr className="linea"></hr>
@@ -155,13 +155,13 @@ generaNvoFlag(banderaAux)
 
 
             <div>
-                {paginaActual === 1 ? null : (
+                {/* {paginaActual === 1 ? null : (
 
                     <button
                         type="button"
                         onClick={paginaAnterior}
                         >&laquo; {" "}</button>
-                )}
+                )} */}
 
                 {paginaActual === maxPag ? null : (
 

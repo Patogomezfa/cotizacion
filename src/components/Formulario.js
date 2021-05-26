@@ -76,7 +76,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     const [fecha, SelectFecha] = useFecha('Ingresa la fecha de cotizacion');
 
     //Utilizar useApiCotizar
-    const [bandera, SelectCotizacion] = useApiCotizar(lista, flag);
+    const [bandera, SelectCotizacion] = useApiCotizar(lista);
     
     //utilizar useApi
     const [api, SelectApi] = useApi(lista);
@@ -96,6 +96,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             const resultadoFlag = await axios.get(url);
             setFlag(resultadoFlag.data);
             // console.log(resultadoFlag.data);
+            
         }
     }
             ApiFlag();
@@ -113,7 +114,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
                     const resultado = await axios.get(url);
                     setLista(resultado.data.rates);
                     setBuscarCoti(false);
-                    console.log(resultado);
+                    // console.log(resultado);
                 }
             }
                     consultarApi();

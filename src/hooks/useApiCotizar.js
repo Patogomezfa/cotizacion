@@ -1,23 +1,6 @@
-import React, {useState, Fragment, useEffect} from 'react';
+import React, {useState, Fragment} from 'react';
 import styled from '@emotion/styled';
 
-
-const Boton = styled.input `
-    margin-top: 40px;
-    font-size: 22px;
-    padding: 22px;
-    background-color: #ee7048;
-    border: none;
-    width: 100%;
-    border-radius: 40px;
-    color: #FFF;
-    transition: background-color .3s ease;
-
-    &:hover {
-        background-color: #ea532a;
-        cursor: pointer;
-    }
-`;
 
 
 const BotonVerMas = styled.input `
@@ -79,11 +62,11 @@ console.log(dosApis[0].name); */
         return bandera.currencies[0].code === 'ARS';
     });
 
-    console.log(bandera.flag);
     banderaAux = toString(bandera.flag); */
-//  const AuxBandera = toString(bandera.flag);
-/*     console.log(Object.keys(flag));
- */
+    //  const AuxBandera = toString(bandera.flag);
+    /*     console.log(Object.keys(flag));
+    */
+// console.log(flag);
 
 
 

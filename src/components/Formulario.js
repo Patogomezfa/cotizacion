@@ -57,7 +57,8 @@ const BotonVerMas = styled.input `
 const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
     //State de las APIs
-    //const [flag, setFlag] = useState([]);
+    // const [nombre, setNombre] = useState({});
+    // const [flag, setFlag] = useState({});
     const [lista, setLista] = useState({});
     const [busqueMas, setBusqueMas] = useState(false);
     const [buscarCoti, setBuscarCoti] = useState(false);
@@ -82,26 +83,40 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 // ---- APIS
 
+// --- API Nombre
+/* 
+    useEffect(() => {
+
+        if(buscarCoti === false){
+
+        const ApiNombre = async () => {
+
+            const url = `https://api.exchangeratesapi.io/v1/symbols?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=USD`;
+            const resNombre = await axios.get(url);
+            setNombre(resNombre.data);
+              }
+            ApiNombre();
+            }
+
+
+        // console.log(nombre);
+    },[buscarCoti]); */
 //API BANDERAS
-  /*  useEffect (() => {
-
-
+/*    useEffect (() => {
 
     const ApiFlag = async  () => {
-        if(buscarCoti === true){
-            
+        
             const url = `https://restcountries.eu/rest/v2/all`;
             const resultadoFlag = await axios.get(url);
             setFlag(resultadoFlag.data);
             
-        }
     }
     ApiFlag();
-    console.log(flag);
-   }, []); */
-
+    // console.log(flag);
+   }, [buscarCoti]);
+ */
 // API Cotizacion
-    //Llamado automatico 
+    //Llamado automatico
     useEffect(() => {
         const consultarApi = async  () => {
                 if(buscarCoti === false){
@@ -114,6 +129,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             }
                     consultarApi();
     }, [divisa, fecha, buscarCoti]);
+// console.log(lista);
 
     //Segundo llamado
     const consultarApi2 = async () => {
@@ -122,28 +138,32 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
         setLista(resultado.data.rates);
     }
     
-    // >> Unir Api de banderas y api de cotizacion para mostrar banderas en lista <<
-/*
-        const nuevoFlag = [{}];
-        const nuevoLista = [];
+    // >> ------- Pruebas para mostrar banderas --------- <<
+/* 
 
-        nuevoFlag.push(flag.data);
-        nuevoLista.push(lista);
-    useEffect (() => {
+        const nuevoFlag = [];
+        const nuevoNombre = [];
 
-        const divisa1 = divisa;
-        
-        const bandera = flag.find( bandera =>{
-            return bandera.currencies[0].code === `${divisa1}`;
-        });
-        const dosApis = [...nuevoFlag, ...nuevoLista];
-        console.log(bandera);
-        // banderaAux = toString(bandera.flag);
-        //  const AuxBandera = toString(bandera.flag);
+        nuevoFlag.push(flag);
+        nuevoNombre.push(nombre);
 
 
-        console.log(dosApis);
-        
+useEffect (() => {
+
+        const dosApis = [...nuevoFlag, ...nuevoNombre];
+        // console.log(dosApis);
+
+
+/* const encuentra1 = nuevoFlag.find(element => element === nuevoNombre.symbols);
+console.log('encuentra1');
+console.log(encuentra1); */
+
+/* if(nuevoNombre.symbols === nuevoFlag[0].name){
+    console.log('soy un genio papii');
+}
+console.log(nombre);
+console.log(dosApis[0].[2].flag);
+console.log(flag[0].name); 
 
     }, [buscarCoti]);
 */

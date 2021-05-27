@@ -42,7 +42,7 @@ const useDivisa = (label, stateInicial, divisas) => {
             >
                 <option>Moneda</option>
                 {Object.keys(divisas).map(opcion => (
-                    <option 
+                    <option
                     key={opcion.toString()}
                     value={opcion}>{opcion}
                     </option>

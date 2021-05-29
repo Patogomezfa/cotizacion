@@ -20,7 +20,7 @@ const BotonVerMas = styled.input `
     }
 `;
 
-const useListaBusqueda = (lista) => {
+const useListaBusqueda = (lista, flag) => {
 
     //state hook
     const [state, setState] = useState();
@@ -30,6 +30,7 @@ const useListaBusqueda = (lista) => {
     const listaAux = lista;
 
     const arrayItem = [];
+    
 
     // ----Para lista
     function generaNvoArray (objeto) {

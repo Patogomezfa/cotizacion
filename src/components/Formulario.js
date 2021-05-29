@@ -57,8 +57,9 @@ const BotonVerMas = styled.input `
 const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
     //State de las APIs
-    // const [nombre, setNombre] = useState({});
-    // const [flag, setFlag] = useState({});
+    const [nombre, setNombre] = useState({});
+    const [flag, setFlag] = useState({});
+
     const [lista, setLista] = useState({});
     const [busqueMas, setBusqueMas] = useState(false);
     const [buscarCoti, setBuscarCoti] = useState(false);
@@ -84,7 +85,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 // ---- APIS
 
 // --- API Nombre
-/* 
+
     useEffect(() => {
 
         if(buscarCoti === false){
@@ -98,11 +99,24 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             ApiNombre();
             }
 
+            // console.log(nombre);
 
-        // console.log(nombre);
-    },[buscarCoti]); */
+    },[buscarCoti]); 
+
+    // function nameCoti () {
+    //     for (let a of nombre){
+    //         const  = v.currencies;
+    //         for(let w of cu){
+    //             const nameFlag = w.name;
+    //             console.log(nameFlag);
+    //         }
+    //     }
+    // }
+    // nameFlags();
+    
+    
 //API BANDERAS
-/*    useEffect (() => {
+   useEffect (() => {
 
     const ApiFlag = async  () => {
         
@@ -112,9 +126,22 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             
     }
     ApiFlag();
-    // console.log(flag);
-   }, [buscarCoti]);
- */
+    // console.log(flag[50].currencies[0].name);
+}, [buscarCoti]);
+
+
+//-------------Obtengo los nombres de paises para comparar con apicotizar y obtener banderas
+    function nameFlags () {
+    for (let v of flag){
+        for(let w of v.currencies){
+            console.log(w.name);
+        }
+    }
+}
+nameFlags();
+
+
+
 // API Cotizacion
     //Llamado automatico
     useEffect(() => {
@@ -148,6 +175,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
         nuevoNombre.push(nombre);
 
  */
+
 /* useEffect (() => {
 
         const dosApis = [...nuevoFlag, ...nuevoNombre];

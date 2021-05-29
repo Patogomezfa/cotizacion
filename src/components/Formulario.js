@@ -104,15 +104,18 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
         },[buscarCoti]); 
 
         //Recuperar nombres de monedas API exchange
+        //PRUEBA 1
+        // const ArrayApiNombre = Object.values(nombre.symbols);
+        //     const arrayNombre = [];
+
+        //     for (let a of ArrayApiNombre){
+        //         const nameCoti = a;
+        //         arrayNombre.push(nameCoti);
+        //     }
+        //Fin prueba 1
+
+        //PRUEBA CON FOR...IN
         
-/*         const arrayNombre = Object.values(nombre.symbols);
-
-            for (let a of arrayNombre){
-                const nameCoti = a;
-            }
-         */
-
-    
     
 //API BANDERAS
    useEffect (() => {
@@ -125,13 +128,12 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             
     }
     ApiFlag();
-    // console.log(flag[50].currencies[0].name);
 }, [buscarCoti]);
 
 
 //       //Recuperar nombres de monedas API restcountris (Flags)
-
-const arrayFlag = [];
+//PRUEBA 1
+/* const arrayFlag = [];
 
     for (let v of flag){
         for(let w of v.currencies){
@@ -140,8 +142,12 @@ const arrayFlag = [];
         }
     }
 
-    console.log(arrayFlag);
+    console.log(arrayFlag);   */
+    //--Fin prueba 1
 
+    //PRUEBA CON FOR...IN
+
+    
 
 
 // API Cotizacion

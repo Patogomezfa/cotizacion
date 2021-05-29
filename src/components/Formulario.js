@@ -99,20 +99,19 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
             ApiNombre();
             }
 
-            // console.log(nombre);
+            
+            
+        },[buscarCoti]); 
 
-    },[buscarCoti]); 
+        //Recuperar nombres de monedas API exchange
+        
+/*         const arrayNombre = Object.values(nombre.symbols);
 
-    // function nameCoti () {
-    //     for (let a of nombre){
-    //         const  = v.currencies;
-    //         for(let w of cu){
-    //             const nameFlag = w.name;
-    //             console.log(nameFlag);
-    //         }
-    //     }
-    // }
-    // nameFlags();
+            for (let a of arrayNombre){
+                const nameCoti = a;
+            }
+         */
+
     
     
 //API BANDERAS
@@ -130,15 +129,18 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 }, [buscarCoti]);
 
 
-//-------------Obtengo los nombres de paises para comparar con apicotizar y obtener banderas
-    function nameFlags () {
+//       //Recuperar nombres de monedas API restcountris (Flags)
+
+const arrayFlag = [];
+
     for (let v of flag){
         for(let w of v.currencies){
-            console.log(w.name);
+            const nameFlag = w.name;
+            arrayFlag.push(nameFlag);
         }
     }
-}
-nameFlags();
+
+    console.log(arrayFlag);
 
 
 

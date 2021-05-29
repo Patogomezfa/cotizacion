@@ -107,15 +107,30 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
         //PRUEBA 1
         // const ArrayApiNombre = Object.values(nombre.symbols);
         //     const arrayNombre = [];
-
-        //     for (let a of ArrayApiNombre){
-        //         const nameCoti = a;
-        //         arrayNombre.push(nameCoti);
-        //     }
-        //Fin prueba 1
-
-        //PRUEBA CON FOR...IN
         
+        //     for (let a of ArrayApiNombre){
+            //         const nameCoti = a;
+            //         arrayNombre.push(nameCoti);
+            //     }
+            //Fin prueba 1
+            
+
+            
+            //PRUEBA CON FOR...IN
+/////----------VOY POR ACAAAAA
+            
+    /*         const ArrayApiNombre = Object.values(nombre.symbols);
+            //     const arrayNombre = [];
+                
+        
+            for (let a of ArrayApiNombre){
+                const nameCoti = a;
+             for (var key in nameCoti) {
+            
+            console.log(key);
+            console.log(nombre[key]);
+            }
+        } */
     
 //API BANDERAS
    useEffect (() => {
@@ -147,7 +162,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
     //PRUEBA CON FOR...IN
 
-    
+
 
 
 // API Cotizacion

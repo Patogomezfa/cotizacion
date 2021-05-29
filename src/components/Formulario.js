@@ -84,7 +84,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 // ---- APIS
 
 // --- API Nombre
-
+/* 
     useEffect(() => {
 
         if(buscarCoti === false){
@@ -100,9 +100,9 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 
 
         // console.log(nombre);
-    },[buscarCoti]);
+    },[buscarCoti]); */
 //API BANDERAS
-   useEffect (() => {
+/*    useEffect (() => {
 
     const ApiFlag = async  () => {
         
@@ -114,7 +114,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     ApiFlag();
     // console.log(flag);
    }, [buscarCoti]);
-
+ */
 // API Cotizacion
     //Llamado automatico
     useEffect(() => {
@@ -140,15 +140,15 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     
     // >> ------- Pruebas para mostrar banderas --------- <<
 
-
+/* 
         const nuevoFlag = [];
         const nuevoNombre = [];
 
         nuevoFlag.push(flag);
         nuevoNombre.push(nombre);
 
-
-useEffect (() => {
+ */
+/* useEffect (() => {
 
         const dosApis = [...nuevoFlag, ...nuevoNombre];
         // console.log(dosApis);
@@ -161,11 +161,8 @@ console.log(encuentra1);
 if(nuevoNombre.symbols === nuevoFlag[0].name){
     console.log('soy un genio papii');
 }
-/* console.log(nombre);
-console.log(dosApis[0].[2].flag);
-console.log(flag[0].name); 
- */
-    }, [buscarCoti]);
+
+    }, [buscarCoti]); */
 
 
 //cuando el usuario hace submit

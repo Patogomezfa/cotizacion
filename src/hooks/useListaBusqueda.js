@@ -37,7 +37,7 @@ const useListaBusqueda = (lista, flag, nombre) => {
 
     const arrayNomCoti = [];
             
-    
+   /*  
 
     for (const i in nombre.symbols) {
             var itemNombre = i;
@@ -57,7 +57,7 @@ const useListaBusqueda = (lista, flag, nombre) => {
                     otroArr.push(arrayBandera);
             }
         });
-    });
+    }); */
 
     // console.log(otroArr);
     // otroArr.forEach(i => {
@@ -80,7 +80,8 @@ const useListaBusqueda = (lista, flag, nombre) => {
                 if (banderaOK) {
                     var itemLista = {
                         divisa: `${i}`,
-                        coti: `${objeto[i]}`
+                        coti: `${objeto[i]}`,
+                        // bandera: `${ PONER E.FLAG ACA }`
                     };
                     arrayItem.push(itemLista);
                 }
@@ -125,7 +126,12 @@ const useListaBusqueda = (lista, flag, nombre) => {
                         <li>
                     <hr className="linea"></hr>
                     <ul className="lista ul-none">
-                        <li>&#127988;</li>
+                        <li>
+
+                            <img src={flag}></img>
+
+
+                        </li>
                         <li>{item.divisa}</li>
                         <li>{item.coti}</li>
                     </ul>

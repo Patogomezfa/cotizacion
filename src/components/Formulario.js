@@ -149,7 +149,7 @@ for (let i of flag){
             const ee = e.currencies[0].code;
             arrayNomCoti.forEach(function(elemento1, ii) {
                 
-                if (ee === elemento1){ //QUE ES LO QUE ESTOY COMPARANDO? 
+                if (ee === elemento1){ 
                     var arrayBandera = {
                         codigo: `${elemento1}`,
                          bandera: `${e.flag}`

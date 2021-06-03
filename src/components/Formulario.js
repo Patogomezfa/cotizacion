@@ -74,7 +74,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     const [fecha, SelectFecha] = useFecha('Ingresa la fecha de cotizacion');
 
     //Utilizar useListaBusqueda
-    const [bandera, SelectCotizacion] = useListaBusqueda(lista);
+    const [bandera, SelectCotizacion] = useListaBusqueda(lista, flag, nombre);
     
     //utilizar useListaDefecto
     const [api, SelectApi] = useListaDefecto(lista);
@@ -123,28 +123,34 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 }, [buscarCoti]);
 
 
+
+
 //-----------------------------------------------------------
+//----------No sirve
 //Recuperar nombres de monedas API restcountris (Flags)
-/*  
+
 //Con este obtengo las banderas!
-const arrayFlag = [];
+/* const arrayFlag = [];
 for (let i of flag){
     var bande = i.flag;
     arrayFlag.push(bande); //Lo pongo en un array
-}
+} */
 
 // Y con este obtengo los nombres de currencies
-        const arrayNomApiFlags = [];
+/*         const arrayNomApiFlags = [];
         for (let v of flag){
             for(let w of v.currencies){
                 var nameFlag = w.code;
                 arrayNomApiFlags.push(nameFlag);
             }
-        }
+        } */
+        //----------Fin No sirve
 
 
-    const OtroArr = [];
 
+
+        /* //--Se fue a useListaBusqueda
+        const otroArr = [];
         flag.forEach(function(e, i) {
             const ee = e.currencies[0].code;
             arrayNomCoti.forEach(function(elemento1, ii) {
@@ -154,12 +160,13 @@ for (let i of flag){
                         codigo: `${elemento1}`,
                          bandera: `${e.flag}`
                         };
-                        OtroArr.push(arrayBandera);
+                        otroArr.push(arrayBandera);
                 }
             });
         });
-        console.log(OtroArr);
- */
+        // console.log(); */
+  
+
 
         //----------------------------------------------------
 // API Cotizacion

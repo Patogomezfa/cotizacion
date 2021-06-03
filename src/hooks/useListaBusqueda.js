@@ -20,7 +20,7 @@ const BotonVerMas = styled.input `
     }
 `;
 
-const useListaBusqueda = (lista) => {
+const useListaBusqueda = (lista, flag, nombre) => {
 
     //state hook
     const [state, setState] = useState();
@@ -30,6 +30,41 @@ const useListaBusqueda = (lista) => {
     const listaAux = lista;
 
     const arrayItem = [];
+
+    // const otroAux = otroArr;
+
+    const otroArr = [];
+
+    const arrayNomCoti = [];
+            
+    
+
+    for (const i in nombre.symbols) {
+            var itemNombre = i;
+            // console.log(itemNombre); 
+            arrayNomCoti.push(itemNombre);
+        }
+    
+    flag.forEach(function(e) {
+        const ee = e.currencies[0].code;
+        arrayNomCoti.forEach(function(elemento1) {
+            
+            if (ee === elemento1){ 
+                var arrayBandera = {
+                    codigo: `${elemento1}`,
+                     bandera: `${e.flag}`
+                    };
+                    otroArr.push(arrayBandera);
+            }
+        });
+    });
+
+    // console.log(otroArr);
+    // otroArr.forEach(i => {
+    //         console.log(i.codigo);
+    // });
+
+ 
     
     // ----Para lista
     function generaNvoArray (objeto) {
@@ -54,6 +89,8 @@ const useListaBusqueda = (lista) => {
     }
     
     generaNvoArray(listaAux);
+
+      
     
     // if (OtroArr[0] === arrayItem.divisa){
     //     console.log('Y ahora?');

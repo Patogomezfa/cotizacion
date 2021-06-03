@@ -18,7 +18,6 @@ const Label = styled.label `
 `;
 
 const useFecha = (label) => {
-
         //State de DatePicker
         const [stateFecha, setFecha] = useState(null);
 
@@ -34,7 +33,6 @@ const useFecha = (label) => {
                 dateFormatCalendar="yyyy-MM-dd"
                 />
         </Fragment>
-        
      );
     return [stateFecha, SeleccionFecha, setFecha];
 }

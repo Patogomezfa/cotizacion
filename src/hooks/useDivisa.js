@@ -22,7 +22,6 @@ const Select = styled.select `
     color: #8a8a8a;
 
 `;
-
 //---Fin styled
 
 const useDivisa = (label, stateInicial, divisas) => {
@@ -47,11 +46,9 @@ const useDivisa = (label, stateInicial, divisas) => {
                     value={opcion}>{opcion}
                     </option>
                 ))}
-
             </Select>
             </div>
         </Fragment>
-
     );
 
     return [state, SeleccionarDivisa, actualizarState];

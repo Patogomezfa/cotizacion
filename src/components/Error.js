@@ -19,9 +19,7 @@ const Error = ({mensaje}) => {
         <TxtError>{mensaje}</TxtError>
      );
 }
-
 Error.propTypes = {
-
     mensaje: PropTypes.string.isRequired
 }
  

@@ -6,11 +6,8 @@ import GBP from '../img/GBP.png'
 import USD from '../img/USD.png'
 import EUR from '../img/EUR.png'
 
-
 const useListaDefecto = (lista) => {
-
     const [state, setState] = useState();
-
     const SelectApi = () => (
         <Fragment>
             <ul className="ul-none">
@@ -48,7 +45,6 @@ const useListaDefecto = (lista) => {
                 </li>
             </ul>
         </Fragment>
-
     );
         return [state, SelectApi, setState];
 }

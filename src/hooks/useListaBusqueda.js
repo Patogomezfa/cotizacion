@@ -1,5 +1,6 @@
 import React, {useState, Fragment} from 'react';
 import styled from '@emotion/styled';
+import blanca from '../img/blanca.png';
 
 const BotonVerMas = styled.input `
     margin-top: 40px;
@@ -21,51 +22,11 @@ const BotonVerMas = styled.input `
 `;
 
 const useListaBusqueda = (lista, flag, nombre) => {
-
-    //state hook
     const [state, setState] = useState();
-
     const [paginaActual, setPaginaActual] = useState(1);
-
     const listaAux = lista;
-
     const arrayItem = [];
 
-    // const otroAux = otroArr;
-
-    const otroArr = [];
-
-    const arrayNomCoti = [];
-            
-   /*  
-
-    for (const i in nombre.symbols) {
-            var itemNombre = i;
-            // console.log(itemNombre); 
-            arrayNomCoti.push(itemNombre);
-        }
-    
-    flag.forEach(function(e) {
-        const ee = e.currencies[0].code;
-        arrayNomCoti.forEach(function(elemento1) {
-            
-            if (ee === elemento1){ 
-                var arrayBandera = {
-                    codigo: `${elemento1}`,
-                     bandera: `${e.flag}`
-                    };
-                    otroArr.push(arrayBandera);
-            }
-        });
-    }); */
-
-    // console.log(otroArr);
-    // otroArr.forEach(i => {
-    //         console.log(i.codigo);
-    // });
-
- 
-    
     // ----Para lista
     function generaNvoArray (objeto) {
         for (var i in objeto) {
@@ -73,7 +34,6 @@ const useListaBusqueda = (lista, flag, nombre) => {
             if(objeto.hasOwnProperty(i)) {
                 var aux = `${i}`;
                 var banderaOK;
-                
                 aux === "CAD"||aux === "GBP"||aux === "USD"||aux ==="EUR"
                 ? (banderaOK = false)
                 : (banderaOK = true);
@@ -88,19 +48,82 @@ const useListaBusqueda = (lista, flag, nombre) => {
             }
         }
     }
-    
     generaNvoArray(listaAux);
 
-      
+    // console.log(arrayItem);
+
+    //-----Para banderas
+/* 
+    for (const i in nombre.symbols) {
+        var itemNombre = i;
+        // console.log(itemNombre); 
+        arrayNomCoti.push(itemNombre);
+    }
+//Pureba para obtener codigo y bandera
+
+// const ultra = [...flag, ...arrayNomCoti];
+
+flag.forEach(function(e) {
+    const ee = e.currencies[0].code;
+    arrayNomCoti.forEach(function(elemento1) {
+        
+        if (ee === elemento1){ 
+            var arrayBandera = {
+                codigo: `${elemento1}`,
+                 bandera: `${e.flag}`
+                };
+                otroArr.push(arrayBandera);
+        }
+    });
+}); */
+
+// console.log(otroArr);
+
+// otroArr.forEach(i => {
+//     // console.log(i.codigo);
+//     const bander = i.bandera;
+//     // console.log(bander);
+//     // console.log(bander);
+// });
+
+    //Unir arrays
+
+    // const ultraArr = [...arrayItem, ...otroArr];
+
+    // console.log(ultraArr);
+
+    //If para obtener banderas
+
+ /*    ultraArr.forEach(i => {
+        if (i.codigo === i.divisa){
+            console.log('eureka!!!!!!!!');
+        }
+    }); */
+
+    // if(objeto.hasOwnProperty(i)) {
+    //     var aux = `${i}`;
+    //     var banderaOK;
+        
+    //     aux === "CAD"||aux === "GBP"||aux === "USD"||aux ==="EUR"
+    //     ? (banderaOK = false)
+    //     : (banderaOK = true);
+    //     if (banderaOK) {
+    //         var itemLista = {
+    //             divisa: `${i}`,
+    //             coti: `${objeto[i]}`,
+    //             // bandera: `${ PONER E.FLAG ACA }`
+    //         };
+    //         arrayItem.push(itemLista);
+    //     }
+    // }
     
     // if (OtroArr[0] === arrayItem.divisa){
     //     console.log('Y ahora?');
     // }else{
     //     console.log('No paso nada')
     // }
-/* console.log(OtroArr[0]); //COMPARAR LAS DIVISAS CON NOMBREAPI CODE  PARA MOSTRAR BANDERA
-//TENGO QUE IMPORTAR OTROARR PARA ACCEDER A NOMBRE COTI Y FLAG
- */
+
+    //--Mostrar mas cotizaciones
     var maxPag = arrayItem.length / 4;
 
     //Definir la pagina anterior
@@ -126,30 +149,21 @@ const useListaBusqueda = (lista, flag, nombre) => {
                         <li>
                     <hr className="linea"></hr>
                     <ul className="lista ul-none">
-                        <li>
-
-                            <img src={flag}></img>
-
-
-                        </li>
+                        <img src={blanca}  alt="Bandera de pais" className="bandera"/>
                         <li>{item.divisa}</li>
                         <li>{item.coti}</li>
                     </ul>
                 </li>
                 ))}
             </ul>
-
             <div>
-                
                 {paginaActual === 1 ? null : (
                     <button
                     className="cerrar"
                     onClick={cerrarCuatro}
                         >&times;</button>
                 )}
-
                 {paginaActual === maxPag ? null : (
-
                 <BotonVerMas
                     type="button"
                     onClick={agregarCuatro}

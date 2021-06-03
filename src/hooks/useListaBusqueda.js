@@ -20,7 +20,7 @@ const BotonVerMas = styled.input `
     }
 `;
 
-const useListaBusqueda = (lista, flag) => {
+const useListaBusqueda = (lista) => {
 
     //state hook
     const [state, setState] = useState();
@@ -31,7 +31,6 @@ const useListaBusqueda = (lista, flag) => {
 
     const arrayItem = [];
     
-
     // ----Para lista
     function generaNvoArray (objeto) {
         for (var i in objeto) {
@@ -39,10 +38,10 @@ const useListaBusqueda = (lista, flag) => {
             if(objeto.hasOwnProperty(i)) {
                 var aux = `${i}`;
                 var banderaOK;
-
-                    aux === "CAD"||aux === "GBP"||aux === "USD"||aux ==="EUR"
-                        ? (banderaOK = false)
-                        : (banderaOK = true);
+                
+                aux === "CAD"||aux === "GBP"||aux === "USD"||aux ==="EUR"
+                ? (banderaOK = false)
+                : (banderaOK = true);
                 if (banderaOK) {
                     var itemLista = {
                         divisa: `${i}`,
@@ -53,9 +52,17 @@ const useListaBusqueda = (lista, flag) => {
             }
         }
     }
-
+    
     generaNvoArray(listaAux);
-
+    
+    // if (OtroArr[0] === arrayItem.divisa){
+    //     console.log('Y ahora?');
+    // }else{
+    //     console.log('No paso nada')
+    // }
+/* console.log(OtroArr[0]); //COMPARAR LAS DIVISAS CON NOMBREAPI CODE  PARA MOSTRAR BANDERA
+//TENGO QUE IMPORTAR OTROARR PARA ACCEDER A NOMBRE COTI Y FLAG
+ */
     var maxPag = arrayItem.length / 4;
 
     //Definir la pagina anterior

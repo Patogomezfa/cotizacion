@@ -98,41 +98,18 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
               }
             ApiNombre();
             }
-
-            
             
         },[buscarCoti]); 
-
-        //Recuperar nombres de monedas API exchange
-        //PRUEBA 1
-        // const ArrayApiNombre = Object.values(nombre.symbols);
-        //     const arrayNombre = [];
-        
-        //     for (let a of ArrayApiNombre){
-            //         const nameCoti = a;
-            //         arrayNombre.push(nameCoti);
-            //     }
-            //Fin prueba 1
             
-
+                const arrayNomCoti = [];
             
-            //PRUEBA CON FOR...IN
-/////----------VOY POR ACAAAAA
-            
-    /*         const ArrayApiNombre = Object.values(nombre.symbols);
-            //     const arrayNombre = [];
+                for (const i in nombre.symbols) {
+                        var itemNombre = i;
+                        // console.log(itemNombre); 
+                        arrayNomCoti.push(itemNombre);
+                    }
                 
-        
-            for (let a of ArrayApiNombre){
-                const nameCoti = a;
-             for (var key in nameCoti) {
-            
-            console.log(key);
-            console.log(nombre[key]);
-            }
-        } */
-    
-//API BANDERAS
+// ---- API BANDERAS
    useEffect (() => {
 
     const ApiFlag = async  () => {
@@ -146,25 +123,45 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
 }, [buscarCoti]);
 
 
-//       //Recuperar nombres de monedas API restcountris (Flags)
-//PRUEBA 1
-/* const arrayFlag = [];
+//-----------------------------------------------------------
+//Recuperar nombres de monedas API restcountris (Flags)
+/*  
+//Con este obtengo las banderas!
+const arrayFlag = [];
+for (let i of flag){
+    var bande = i.flag;
+    arrayFlag.push(bande); //Lo pongo en un array
+}
 
-    for (let v of flag){
-        for(let w of v.currencies){
-            const nameFlag = w.name;
-            arrayFlag.push(nameFlag);
+// Y con este obtengo los nombres de currencies
+        const arrayNomApiFlags = [];
+        for (let v of flag){
+            for(let w of v.currencies){
+                var nameFlag = w.code;
+                arrayNomApiFlags.push(nameFlag);
+            }
         }
-    }
-
-    console.log(arrayFlag);   */
-    //--Fin prueba 1
-
-    //PRUEBA CON FOR...IN
 
 
+    const OtroArr = [];
 
+        flag.forEach(function(e, i) {
+            const ee = e.currencies[0].code;
+            arrayNomCoti.forEach(function(elemento1, ii) {
+                
+                if (ee === elemento1){ //QUE ES LO QUE ESTOY COMPARANDO? 
+                    var arrayBandera = {
+                        codigo: `${elemento1}`,
+                         bandera: `${e.flag}`
+                        };
+                        OtroArr.push(arrayBandera);
+                }
+            });
+        });
+        console.log(OtroArr);
+ */
 
+        //----------------------------------------------------
 // API Cotizacion
     //Llamado automatico
     useEffect(() => {

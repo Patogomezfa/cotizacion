@@ -146,7 +146,7 @@ flag.forEach(function(e) {
                 {arrayItem
                     .slice('', paginaActual * 4) // presenta cotizaciones 4 + 4
                     .map((item) => (
-                        <li>
+                        <li key= {item.divisa.toString()}>
                     <hr className="linea"></hr>
                     <ul className="lista ul-none">
                         <img src={blanca}  alt="Bandera de pais" className="bandera"/>

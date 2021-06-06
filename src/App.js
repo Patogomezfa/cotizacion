@@ -11,7 +11,7 @@ const Contenedor = styled.div `
   border-radius: 10px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
   `;
- const Contenedor2 = styled.div `
+ const Subcontenedor = styled.div `
   width: 85%;
   margin: 0 auto;
  `;
@@ -37,12 +37,12 @@ function App() {
   return (
     <Contenedor>
         <Header>Histórico de cotizaciones</Header>
-      <Contenedor2>
+      <Subcontenedor>
         <Formulario 
           setDivisa={setDivisa}
           setFecha={setFecha}
         />
-</Contenedor2>
+</Subcontenedor>
     </Contenedor>
   );
 }

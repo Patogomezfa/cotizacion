@@ -54,7 +54,7 @@ const BotonVerMas = styled.input `
 `;
 //--Fin styled
 
-const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
+const Formulario = ( { setFecha, setDivisa }) => {
 
     //State de las APIs
     const [nombre, setNombre] = useState({});
@@ -163,7 +163,7 @@ const Formulario = ( { setFecha, setDivisa, paginaSiguiente }) => {
     return (
         <Fragment>
             <form className="form">
-                {error ? <Error mensaje="Debes completar todos los campos" /> : null}
+                {error ? <Error mensaje="Completa todos los campos" /> : null}
                 <SelectDivisa />
                 <SelectFecha />
                 <BotonBuscar 

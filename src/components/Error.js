@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 const TxtError = styled.p `
+    border-radius: 8px;
     padding: 1rem;
     font-size: 22px;
     font-family: Arial, Helvetica, sans-serif;

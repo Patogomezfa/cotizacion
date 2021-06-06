@@ -154,7 +154,9 @@ flag.forEach(function(e) {
                         <li>{item.coti}</li>
                     </ul>
                 </li>
-                ))}
+                )
+                )
+                }
             </ul>
             <div>
                 {paginaActual === 1 ? null : (

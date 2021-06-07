@@ -57,8 +57,8 @@ const BotonVerMas = styled.input `
 const Formulario = ( { setFecha, setDivisa }) => {
 
     //State de las APIs
-    const [nombre, setNombre] = useState({});
-    const [flag, setFlag] = useState({});
+    // const [nombre, setNombre] = useState({});
+    // const [flag, setFlag] = useState({});
 
     const [lista, setLista] = useState({});
     const [busqueMas, setBusqueMas] = useState(false);
@@ -74,10 +74,10 @@ const Formulario = ( { setFecha, setDivisa }) => {
     const [fecha, SelectFecha] = useFecha('Ingresa la fecha de cotizacion');
 
     //Utilizar useListaBusqueda
-    const [bandera, SelectCotizacion] = useListaBusqueda(lista, flag, nombre);
+    const [SelectCotizacion] = useListaBusqueda(lista);
     
     //utilizar useListaDefecto
-    const [api, SelectApi] = useListaDefecto(lista);
+    const [SelectApi] = useListaDefecto(lista);
 
     //State Error
     const [error, setError] = useState(false);

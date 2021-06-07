@@ -21,8 +21,8 @@ const BotonVerMas = styled.input `
     }
 `;
 
-const useListaBusqueda = (lista, flag, nombre) => {
-    const [state, setState] = useState();
+const useListaBusqueda = (lista) => {
+    // const [state, setState] = useState();
     const [paginaActual, setPaginaActual] = useState(1);
     const listaAux = lista;
     const arrayItem = [];
@@ -175,7 +175,7 @@ flag.forEach(function(e) {
             </div>
         </Fragment>
     );
-    return [state, SelectCotizacion, setState];
+    return [SelectCotizacion];
 };
  
 export default useListaBusqueda;

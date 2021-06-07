@@ -27,7 +27,7 @@ const Select = styled.select `
 const useDivisa = (label, stateInicial, divisas) => {
     
     //State del hook
-    const [state, actualizarState] = useState(stateInicial);
+    const [state, setState] = useState(stateInicial);
     
     //Para mostrar en interfaz
     const SeleccionarDivisa = () => ( 
@@ -36,7 +36,7 @@ const useDivisa = (label, stateInicial, divisas) => {
             <Label>{label}</Label>
             <div className="downSelect">
             <Select
-            onChange={ e => actualizarState(e.target.value)}
+            onChange={ e => setState(e.target.value)}
             value={state}
             >
                 <option>Moneda</option>
@@ -51,7 +51,7 @@ const useDivisa = (label, stateInicial, divisas) => {
         </Fragment>
     );
 
-    return [state, SeleccionarDivisa, actualizarState];
+    return [state, SeleccionarDivisa, setState];
 }
 
 export default useDivisa;

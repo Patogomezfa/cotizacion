@@ -117,7 +117,7 @@ const Formulario = ( { setFecha, setDivisa }) => {
 // }, []);
 
 // ---- API Cotizacion
-    //Llamado automatico
+    //Llamado por defecto (USD)
     useEffect(() => {
         const consultarApi = async  () => {
                 if(buscarCoti === false){
@@ -130,32 +130,29 @@ const Formulario = ( { setFecha, setDivisa }) => {
             }
                     consultarApi();
     }, [divisa, fecha, buscarCoti]);
-// console.log(lista);
 
-    //Segundo llamado
+    //Segundo llamado con seleccion de divisa
     const consultarApi2 = async () => {
         const url = `https://api.exchangeratesapi.io/v1/${fecha.toISOString().slice(0,10)}?access_key=6feb2ec446b7478a6d4ee3885d838e9e&base=${divisa}`
         const resultado = await axios.get(url);
         setLista(resultado.data.rates);
     }
 
-//cuando el usuario hace submit
-    const buscarCotizar = (e) => {
+//Cuando el usuario hace submit
+    const buscarCotizar = e => {
         e.preventDefault();
         setBuscarCoti(true);
-        //validar que ambos campos esten llenos
-        if(divisa === '' && fecha === null) {
+        if(divisa === '' && fecha === null) {//valida que los campos esten llenos
             setError(true);
             return; //Para que no se ejecute el codigo
         }else{
-        //pasar los datos al componente principal
         setError(false);
-        setDivisa(divisa);
+        setDivisa(divisa);//guarda divisa y fecha en sus states
         setFecha(fecha);
-        consultarApi2(); // Ejecuta llamado a la api para Ver Mas
+        consultarApi2(); // Ejecuta llamado a la api con seleccion
     }}
     
-    const masCotizaciones = (e) => {
+    const masCotizaciones = e => {
         e.preventDefault();
         setBusqueMas(true);
     }

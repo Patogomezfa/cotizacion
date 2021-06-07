@@ -23,11 +23,10 @@ const BotonVerMas = styled.input `
 
 const useListaBusqueda = (lista) => {
     const [paginaActual, setPaginaActual] = useState(1);
-    const listaAux = lista;
     const arrayItem = [];
 
     // ----Para lista
-    function generaNvoArray (objeto) {
+    function generaNuevoArray (objeto) {
         for (var i in objeto) {
             //objeto.hasOwnProperty -->filtrar las propiedades del objeto
             if(objeto.hasOwnProperty(i)) {
@@ -47,7 +46,7 @@ const useListaBusqueda = (lista) => {
             }
         }
     }
-    generaNvoArray(listaAux);
+    generaNuevoArray(lista);
 
     // console.log(arrayItem);
 
@@ -125,7 +124,7 @@ flag.forEach(function(e) {
     //--Mostrar mas cotizaciones
     var maxPag = arrayItem.length / 4;
 
-    //Definir la pagina anterior
+    //Definir cerrar pagina
     const cerrarCuatro = () => {
         const agregaPagina = paginaActual - 1;
         if (agregaPagina === 0) return;

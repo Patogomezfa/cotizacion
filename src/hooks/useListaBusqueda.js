@@ -22,7 +22,6 @@ const BotonVerMas = styled.input `
 `;
 
 const useListaBusqueda = (lista) => {
-    // const [state, setState] = useState();
     const [paginaActual, setPaginaActual] = useState(1);
     const listaAux = lista;
     const arrayItem = [];

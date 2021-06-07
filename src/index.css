@@ -48,22 +48,20 @@ margin: 0 auto;
 }
  
 .linea{
-  display: block; 
-  height: 1px; 
   border: 0; 
   border-top: 2px solid #e1e1e1; 
-  padding: 0;
 }
 
 .ul-none{
   list-style: none;
   padding: 0;
+  /* margin-bottom: 0px; */
 }
 
 .lista{
   padding: 10px 0;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -93,6 +91,7 @@ margin: 0 auto;
     width: 30px;
     height: 30px;
     border-radius: 15px;
+    transition: color .5s ease;
 }
 
 .cerrar:hover {

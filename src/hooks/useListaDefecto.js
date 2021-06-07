@@ -11,7 +11,7 @@ const useListaDefecto = (lista) => {
         <Fragment>
             <ul className="ul-none">
                 <li>
-                    <hr className="linea"></hr>
+                    <hr className="linea" />
                     <ul className="lista ul-none">
                         <li><img src={CAD} alt="Bandera canada" className="bandera"/></li>
                         <li>CAD</li>
@@ -19,7 +19,7 @@ const useListaDefecto = (lista) => {
                     </ul>
                 </li>
                 <li>
-                    <hr className="linea"></hr>
+                    <hr className="linea" />
                     <ul className="lista ul-none">
                         <li><img src={GBP} alt="Bandera Reino Unido" className="bandera"/></li>
                         <li>GBP</li>
@@ -27,7 +27,7 @@ const useListaDefecto = (lista) => {
                     </ul>
                 </li>
                 <li>
-                    <hr className="linea"></hr>
+                    <hr className="linea" />
                     <ul className="lista ul-none">
                         <li><img src={USD} alt="Bandera de EEUU" className="bandera"/></li>
                         <li>USD</li>
@@ -35,7 +35,7 @@ const useListaDefecto = (lista) => {
                     </ul>
                 </li>
                 <li>
-                    <hr className="linea"></hr>
+                    <hr className="linea" />
                     <ul className="lista ul-none">
                         <li><img src={EUR} alt="Bandera de Europa" className="bandera"/></li>
                         <li>EUR</li>
